@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :public_recipes, only: [:index]
 
   resources :recipes, only: [:index, :new, :create, :show, :destroy]
-  resources :foods, only: [:index, :new, :create, :update, :edit, :destroy]
+  resources :foods, only: [:index, :new, :create, :destroy]
   resources :inventories, only: [:index, :new, :create, :show, :destroy]
 end
