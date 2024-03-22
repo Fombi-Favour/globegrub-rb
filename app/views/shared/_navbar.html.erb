@@ -1,0 +1,24 @@
+<header>
+  <nav aria-label="Global">
+    <div class="nav-menu">
+      <h2>GlobeGrub</h2>
+      <% if user_signed_in? %>
+        <%= link_to 'Public Recipe', public_recipes_path %>
+        <%= link_to 'Recipes', recipes_path %>
+        <%= link_to 'Foods', foods_path %>
+        <%= link_to 'Inventories', inventories_path %>
+        <%= link_to 'General Shopping', "" %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <%end%>
+    </div>
+
+    <%if user_signed_in? %>
+      <div class="profile">
+        <span>Hello, <%= current_user.name %> </span>
+        <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "btn-out" %>
+      </div>
+    <%end%>
+  </nav>
+</header>
