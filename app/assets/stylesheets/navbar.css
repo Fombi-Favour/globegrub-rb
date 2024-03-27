@@ -4,52 +4,92 @@ header {
   color: #fff;
 }
 
-header nav {
+nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px;
 }
 
-.nav-menu {
+.title-menu {
   display: flex;
   align-items: center;
-  gap: 0.985rem;
+  gap: 5px;
 }
 
-.nav-menu a {
-  color: #e5e7eb;
-  text-decoration: none;
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-  padding: 0 16px;
-}
-
-.profile span {
-  background: #2563eb;
-  padding: 8px;
+.title-menu img {
+  width: 50px;
+  height: 40px;
   border-radius: 10px;
 }
 
-.btn-out {
-  background: #f6120e;
-  width: 90px;
-  height: 25px;
-  border: none;
-  border-radius: 4px;
-  color: #e5e7eb;
-  text-decoration: none;
-  text-align: center;
-  text-transform: capitalize;
-  cursor: pointer;
+/********* tablet style ***********/
+@media only screen and (min-width: 768px) {
+  .title-menu {
+    gap: 14px;
+  }
+
+  .title-menu img {
+    width: 80px;
+    height: 70px;
+    border-radius: 14px;
+  }
 }
 
-/********* tablet style ***********/
-@media only screen and (max-width: 768px) {}
-
 /********* desktop style ***********/
-@media only screen and (max-width: 1024px) {}
+@media only screen and (min-width: 1024px) {
+  nav {
+    gap: 2rem;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    gap: 7rem;
+    white-space: nowrap;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  ul li a {
+    color: #e5e7eb;
+    text-decoration: none;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .profile span {
+    background: #2563eb;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .btn-out {
+    background: #f6120e;
+    width: 90px;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    color: #e5e7eb;
+    text-decoration: none;
+    text-align: center;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+}
