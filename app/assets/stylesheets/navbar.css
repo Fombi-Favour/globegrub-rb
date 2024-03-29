@@ -75,7 +75,8 @@ ul li a {
   top: 0;
   right: 0;
   transform: translateX(-100%);
-  /*transition: 0.5s;*/
+
+  /* transition: 0.5s; */
 }
 
 .menu-open {
