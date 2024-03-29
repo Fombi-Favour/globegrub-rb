@@ -23,6 +23,19 @@ nav {
   border-radius: 10px;
 }
 
+.reg {
+  display: flex;
+  gap: 1rem;
+  padding-left: 6px;
+}
+
+.reg a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .nav-menu {
   display: none;
 }
@@ -92,6 +105,12 @@ ul li a {
   justify-content: flex-end;
   padding-top: 12px;
   padding-bottom: 30px;
+}
+
+.menu-icon button {
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
 /********* tablet style ***********/
