@@ -1,0 +1,120 @@
+/**************** mobile style ***************/
+
+/*********** login style ************/
+.log-col {
+  height: 100vh;
+  width: 100%;
+  background: url("login.png") no-repeat fixed center;
+  background-size: cover;
+}
+
+.blur-col {
+  height: 100vh;
+  background: rgb(0 0 0 / 0.7);
+  padding: 0 12px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-texture {
+  margin: 4.2rem auto;
+  width: 98%;
+}
+
+.texture-col {
+  background: white;
+  padding: 2rem 4rem 2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
+}
+
+.texture-col .title {
+  color: rgb(17 24 39 / 1);
+  text-align: center;
+}
+
+form {
+  margin-top: 1rem;
+}
+
+.field {
+  margin-top: 12px;
+}
+
+.field label {
+  color: rgb(55 65 81 / 1);
+  font-weight: 500;
+}
+
+.field input {
+  width: 100%;
+  border-radius: 10px;
+  color: rgb(55 65 81 / 1);
+  line-height: 1.25;
+  padding: 8px 12px;
+  outline: none;
+}
+
+.rem-field {
+  margin-top: 16px;
+  font-size: 17px;
+  color: rgb(55 65 81 / 1);
+}
+
+.actions {
+  margin: 20px 0;
+}
+
+.actions .btn-submit {
+  width: 250px;
+  height: 35px;
+  border: none;
+  border-radius: 12px;
+  background: #fdcd30;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.12rem;
+}
+
+.text-swap {
+  text-align: center;
+  font-size: 1.046rem;
+  color: #fff;
+}
+
+.text-swap a {
+  color: #fff;
+  letter-spacing: 0.1rem;
+}
+
+/**************** tablet style ***************/
+@media only screen and (min-width: 768px) {
+  .blur-col {
+    padding: 0 1.5rem;
+  }
+
+  .form-texture {
+    width: 70%;
+  }
+
+  .text-swap {
+    font-size: 1.406rem;
+  }
+}
+
+/**************** desktop style ***************/
+@media only screen and (min-width: 1024px) {
+  .blur-col {
+    padding: 0 2rem;
+  }
+
+  .form-texture {
+    width: 50%;
+  }
+}
