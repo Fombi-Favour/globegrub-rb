@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'public_recipes/index'
-  get 'foods/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -9,7 +7,15 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "public_recipes#index"
+  devise_scope :user do
+    authenticated :user do
+      root 'recipes#index', as: :authenticated_root
+      get '/users/sign_out' => 'devise/sessions#destroy'
+    end
+    unauthenticated do
+      root "public_recipes#index", as: :unauthenticated_root
+    end
+  end
 
   resources :public_recipes, only: [:index]
 
