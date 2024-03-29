@@ -28,9 +28,39 @@
       <% end %>
     </div>
 
+    <!---------- mobile nav menu items ------------>
+    <div class="mob-menu" id="dropdownMenu" data-target="navbar.dropdownMenu">
+      <div class="menu-open">
+        <div class="close-menu">
+          <i class="fa-regular fa-circle-xmark fa-xl" id="close" data-target="navbar.close"></i>
+        </div>
+        <ul>
+          <% if user_signed_in? %>
+            <li> <%= link_to 'Public Recipe', public_recipes_path %> </li>
+            <li> <%= link_to 'Recipes', recipes_path %> </li>
+            <li> <%= link_to 'Foods', foods_path %> </li>
+            <li> <%= link_to 'Inventories', inventories_path %> </li>
+            <li> <%= link_to 'General Shopping', "" %> </li>
+          <% else %>
+            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to 'Sign Up', new_user_registration_path %>
+          <% end %>
+        </ul>
+
+        <% if user_signed_in? %>
+          <div class="profile">
+            <span>👋 Hello, <%= current_user.name %> </span>
+            <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "btn-out" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
     <!-------------- menu icon ------------------>
-    <div class="toggle-button menu-icon">
-      <i class="fa-solid fa-bars fa-lg"></i>
+    <div class="menu-icon" data-controller="navbar">
+      <%= button_to "", data: { action: "click->navbar#toggle" }, class: "toggle-button" do %>
+        <i class="fa-solid fa-bars fa-lg toggle-button" data-action="click->navbar#toggle"></i>
+      <% end %>
     </div>
   </nav>
 </header>
