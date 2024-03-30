@@ -1,0 +1,63 @@
+/**************** mobile style ***************/
+.recipe-page {
+  width: 100%;
+  height: 100vh;
+  background: url("recipe.jpg") no-repeat fixed center;
+  background-size: cover;
+}
+
+.main-page {
+  height: 100vh;
+  background: rgb(0 0 0 / 0.7);
+}
+
+.sub-page {
+  padding-top: 7.5rem;
+}
+
+/************* new.html.erb style **************/
+.back-ico {
+  padding: 14px;
+}
+
+.back-ico .fa {
+  background: #fff;
+}
+
+.new-texture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 1.5rem 0 1.5rem;
+}
+
+.col-texture {
+  width: 80%;
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem 4rem 2rem 2rem;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
+}
+
+.col-texture h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/**************** tablet style ***************/
+@media only screen and (min-width: 768px) {
+  /************* new.html.erb style **************/
+  .new-texture {
+    padding: 4rem 12px;
+  }
+}
+
+/**************** desktop style ***************/
+@media only screen and (min-width: 1024px) {
+  /************* new.html.erb style **************/
+  .col-texture {
+    width: 50%;
+  }
+}
