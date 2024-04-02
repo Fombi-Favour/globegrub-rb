@@ -16,6 +16,7 @@
  *= require devise
  *= require recipe
  *= require public_recipe
+ *= require food
  */
 
 * {
