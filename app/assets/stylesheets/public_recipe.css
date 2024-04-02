@@ -11,13 +11,26 @@
   background: rgb(0 0 0 / 0.7);
 }
 
+.list-item a {
+  text-decoration: none;
+}
+
+.row p,
+.row span {
+  color: #2e2f30;
+  white-space: nowrap;
+}
+
+.count {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /**************** tablet style ***************/
 @media only screen and (min-width: 768px) {
 }
 
 /**************** desktop style ***************/
 @media only screen and (min-width: 1024px) {
-  .public-page {
-    height: 50vh;
-  }
 }
