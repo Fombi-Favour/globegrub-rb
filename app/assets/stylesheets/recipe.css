@@ -12,7 +12,69 @@
 }
 
 .sub-page {
-  padding-top: 7.5rem;
+  padding-top: 4.5rem;
+}
+
+.sub-page h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.add-rep {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 10px;
+}
+
+.add-rep a {
+  text-decoration: none;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fdcd30;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: 500;
+}
+
+.list-item {
+  border: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0 8px 5px 8px;
+  margin-top: 10px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.list-item::-webkit-scrollbar {
+  display: none;
+}
+
+.list-col {
+  background: #fff;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
+  width: 360px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 12px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row .name {
+  text-decoration: none;
+  color: #2e2f30;
+  font-weight: 600;
 }
 
 /************* new.html.erb style **************/
@@ -48,6 +110,24 @@
 
 /**************** tablet style ***************/
 @media only screen and (min-width: 768px) {
+  .sub-page {
+    padding-top: 7.5rem;
+  }
+
+  .add-rep {
+    padding: 12px 2.5rem;
+  }
+
+  .list-item {
+    height: 600px;
+    padding: 0;
+  }
+
+  .list-col {
+    width: 600px;
+    justify-content: space-between;
+  }
+
   /************* new.html.erb style **************/
   .new-texture {
     padding: 4rem 12px;
@@ -56,6 +136,10 @@
 
 /**************** desktop style ***************/
 @media only screen and (min-width: 1024px) {
+  .list-item {
+    height: 360px;
+  }
+
   /************* new.html.erb style **************/
   .col-texture {
     width: 50%;
