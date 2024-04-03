@@ -17,19 +17,26 @@
 
       <!---------- recipe list ------------->
       <div class="list-item">
-        <% @recipes.each do |recipe| %>
-          <div class="list-col">
-            <div class="row">
-              <%= link_to recipe.name, recipe_path(recipe.id), class: 'name' %>
-              <%= link_to recipes_path, class: 'btn-del', method: :delete do %>
-                <i class="fa-solid fa-trash"></i>
-                delete
-              <% end %>
-            </div>
-            <div class="desc">
-              <span> <%= recipe.description %> </span>
-            </div>
+        <% if @recipes.empty? %>
+          <div class="empty">
+            <%= image_tag('notfound.svg') %>
+            <span>No recipes. Create one now!!!</span>
           </div>
+        <% else %>
+          <% @recipes.each do |recipe| %>
+            <div class="list-col">
+              <div class="row">
+                <%= link_to recipe.name, recipe_path(recipe.id), class: 'name' %>
+                <%= link_to recipes_path, class: 'btn-del', method: :delete do %>
+                  <i class="fa-solid fa-trash"></i>
+                  delete
+                <% end %>
+              </div>
+              <div class="desc">
+                <span> <%= recipe.description %> </span>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
