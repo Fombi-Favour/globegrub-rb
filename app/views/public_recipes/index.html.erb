@@ -8,28 +8,26 @@
     <div class="sub-page">
       <h2>My Public Recipes</h2>
       <!---------- recipe list ------------->
-      <div class="list-item">
+      <div class="list-item" style="height: 450px">
         <% @recipes.each do |recipe| %>
-          <%= link_to recipe_path(recipe.id) do %>
-            <div class="list-col">
-              <div class="row">
-                <p> <%= recipe.name %> </p>
-                <span>By: <%= recipe.user.name %> </span>
+          <div class="list-col">
+            <div class="row">
+              <p> <%= link_to recipe.name, recipe_path(recipe.id) %> </p>
+              <span>By: <%= recipe.user.name %> </span>
 
-                <% if recipe.user_id == current_user %>
-                  <%= link_to recipes_path, class: 'btn-del', method: :delete do %>
-                    <i class="fa-solid fa-trash"></i>
-                    delete
-                  <% end %>
+              <% if user_signed_in? and recipe.user_id == current_user.id %>
+                <%= link_to recipes_path, class: 'btn-del', method: :delete do %>
+                  <i class="fa-solid fa-trash"></i>
+                  delete
                 <% end %>
-              </div>
-
-              <div class="count">
-                <span>Total food items: <%= recipe.recipe_foods.count %> </span>
-                <span>Total price: $<%= @total %> </span>
-              </div>
+              <% end %>
             </div>
-          <% end %>
+
+            <div class="count">
+              <span>Total food items: <%= recipe.recipe_foods.count %> </span>
+              <span>Total price: $<%= @total %> </span>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
