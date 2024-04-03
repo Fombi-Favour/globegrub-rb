@@ -19,50 +19,65 @@
       <div class="list-item">
         <div class="main-table">
           <!------------ desktop listing ------------>
-          <table>
-            <thead>
-            <tr>
-              <th>Name</th>
-              <th>Measurement Unit</th>
-              <th>Unit Price</th>
-              <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @foods.each do |food| %>
+          <% if @foods.empty? %>
+            <div class="empty">
+              <%= image_tag('notfound.svg') %>
+              <span>No Foods. Create one now!!!</span>
+            </div>
+          <% else %>
+            <table>
+              <thead>
               <tr>
-                <td> <%= food.name %> </td>
-                <td> <%= food.measure_unit %> </td>
-                <td> $<%= food.price %> </td>
-                <td>
-                  <%= button_to food_path(food), class: 'btn-del', method: :delete do %>
-                    <i class="fa-solid fa-trash"></i>
-                    remove
-                  <% end %>
-                </td>
+                <th>Name</th>
+                <th>Measurement Unit</th>
+                <th>Unit Price</th>
+                <th>Actions</th>
               </tr>
-            <% end %>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+              <% @foods.each do |food| %>
+                <tr>
+                  <td> <%= food.name %> </td>
+                  <td> <%= food.measure_unit %> </td>
+                  <td> $<%= food.price %> </td>
+                  <td>
+                    <%= button_to food_path(food), class: 'btn-del', method: :delete do %>
+                      <i class="fa-solid fa-trash"></i>
+                      remove
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          <% end %>
+
         </div>
         <!------------ mobile listing ------------>
         <div class="mob-list">
-          <% @foods.each do |food| %>
-            <div class="items">
-              <div class="title-food">
-                <span> <%= food.name %> </span>
-                <%= link_to food_path(food), class: 'btn-del', method: :delete do %>
-                  <i class="fa-solid fa-trash"></i>
-                  remove
-                <% end %>
-              </div>
-
-              <div class="quan">
-                <span>Measurement unit: <%= food.measure_unit %> </span>
-                <span>Unit price: $<%= food.price %> </span>
-              </div>
+          <% if @recipes.empty? %>
+            <div class="empty">
+              <%= image_tag('notfound.svg') %>
+              <span>No recipes. Create one now!!!</span>
             </div>
-          <% end %> %>
+          <% else %>
+            <% @foods.each do |food| %>
+              <div class="items">
+                <div class="title-food">
+                  <span> <%= food.name %> </span>
+                  <%= link_to food_path(food), class: 'btn-del', method: :delete do %>
+                    <i class="fa-solid fa-trash"></i>
+                    remove
+                  <% end %>
+                </div>
+
+                <div class="quan">
+                  <span>Measurement unit: <%= food.measure_unit %> </span>
+                  <span>Unit price: $<%= food.price %> </span>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
