@@ -1,0 +1,85 @@
+/**************** mobile style ***************/
+.food-page {
+  width: 100%;
+  height: 100vh;
+  background: url("food.png") no-repeat fixed center;
+  background-size: cover;
+}
+
+.main-table {
+  display: none;
+}
+
+.items {
+  width: 21.5rem;
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 13px;
+  margin-bottom: 10px;
+}
+
+.title-food {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title-food span {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.quan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.quan span {
+  font-weight: 500;
+}
+
+/**************** tablet style ***************/
+@media only screen and (min-width: 768px) {
+  .main-table {
+    display: block;
+    color: #fff;
+  }
+
+  table {
+    width: 45rem;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 0 auto 20px;
+  }
+
+  thead {
+    background-color: #f5b53e;
+  }
+
+  th,
+  td {
+    padding: 12px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .mob-list {
+    display: none;
+  }
+}
+
+/**************** desktop style ***************/
+@media only screen and (min-width: 1024px) {
+  table {
+    width: 70rem;
+  }
+}
