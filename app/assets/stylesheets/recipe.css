@@ -88,6 +88,13 @@
   white-space: nowrap;
 }
 
+.row p a {
+  text-decoration: none;
+  color: #2e2f30;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .btn-del {
   display: flex;
   align-items: center;
