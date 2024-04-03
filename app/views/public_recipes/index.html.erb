@@ -16,7 +16,7 @@
                 <p> <%= recipe.name %> </p>
                 <span>By: <%= recipe.user.name %> </span>
 
-                <% if recipe.user_id == current_user.id %>
+                <% if recipe.user_id == current_user %>
                   <%= link_to recipes_path, class: 'btn-del', method: :delete do %>
                     <i class="fa-solid fa-trash"></i>
                     delete
