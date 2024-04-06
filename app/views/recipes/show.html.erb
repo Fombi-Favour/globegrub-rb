@@ -1,0 +1,73 @@
+<section class="recipe-page" style="min-height: 100vh">
+  <div class="main-page">
+    <div class="back-ico">
+      <%= link_to authenticated_root_path do %>
+        <i class="fa-solid fa-circle-arrow-left fa-2xl" style="color: #ffffff;"></i>
+      <% end %>
+    </div>
+
+    <div class="main-row">
+      <h2> <%= @recipe.name %> </h2>
+      <div class="contents-detail">
+        <div class="content-col">
+          <h4>
+            Preparation time: <%= @recipe.prep_time %> hour(s)
+          </h4>
+          <h4>
+            Cooking time: <%= @recipe.cooking_time %> hour(s)
+          </h4>
+          <h4> <%= @recipe.description %> </h4>
+        </div>
+        <!----------- switch button ------------->
+        <div class="toggle">
+          <%= form_with(model: @recipe, url: recipe_path(@recipe.id), local: true, method: :patch) do |f| %>
+            <div>
+              <h4><%= f.label :public %>
+                <label class="switch">
+                  <%= f.hidden_field :public, value: false %>
+                  <%= f.check_box :public, { onchange: 'this.form.submit()',
+                                             disabled: @user != current_user }, true, false %>
+                  <span class="slider"></span>
+                </label>
+              </h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <!----------------- buttons display --------------------->
+      <div class="action-btn">
+        <%= button_to "Generate shopping list", "", class: "btn-generate" %>
+        <%= button_to "Add ingredient", "", class: "add-btn" %>
+      </div>
+
+      <!---------------- recipe foods list ------------------->
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Value</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recipe.recipe_foods.each do |recipe_food| %>
+              <tr>
+                <td> <%= recipe_food.food.name %> </td>
+                <td> <%= recipe_food.quantity %> <%= recipe_food.food.measure_unit %> </td>
+                <td> $<%= recipe_food.food.price * recipe_food.quantity %> </td>
+                <td style="display: flex; justify-content: center">
+                  <%= button_to recipe_recipe_food_path(@recipe, recipe_food), class: 'btn-del', method: :delete do %>
+                    <i class="fa-solid fa-trash"></i>
+                    remove
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

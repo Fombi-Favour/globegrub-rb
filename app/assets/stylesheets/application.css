@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  *= require navbar
+ *= require devise
+ *= require recipe
+ *= require public_recipe
+ *= require recipe_details
+ *= require food
  */
 
 * {

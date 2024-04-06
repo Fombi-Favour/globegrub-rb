@@ -2,8 +2,8 @@ class CreateRecipeFoods < ActiveRecord::Migration[7.1]
   def change
     create_table :recipe_foods do |t|
       t.decimal :quantity
-      t.references :users, foreign_key: { to_table: :users }
-      t.references :foods, foreign_key: { to_table: :foods }
+      t.references :recipe, foreign_key: { to_table: :recipes }
+      t.references :food, foreign_key: { to_table: :foods }
 
       t.timestamps
     end

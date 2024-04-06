@@ -1,0 +1,175 @@
+/**************** mobile style ***************/
+.recipe-page {
+  width: 100%;
+  height: 100vh;
+  background: url("recipe.jpg") no-repeat fixed center;
+  background-size: cover;
+}
+
+.main-page {
+  height: 100vh;
+  background: rgb(0 0 0 / 0.7);
+}
+
+.sub-page {
+  padding-top: 4.5rem;
+}
+
+.sub-page h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.add-rep {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 10px;
+}
+
+.add-rep a {
+  text-decoration: none;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fdcd30;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: 500;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0 8px 5px 8px;
+  margin-top: 1rem;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.list-item::-webkit-scrollbar {
+  display: none;
+}
+
+.empty {
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.empty span {
+  font-size: 1.215rem;
+  font-weight: 700;
+  letter-spacing: 0.02rem;
+}
+
+.list-col {
+  background: #fff;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
+  width: 360px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 12px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row .name {
+  text-decoration: none;
+  color: #2e2f30;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.row p a {
+  text-decoration: none;
+  color: #2e2f30;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn-del {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  background: #f6120e;
+  padding: 8px;
+  color: #fff;
+  border-radius: 12px;
+}
+
+/************* new.html.erb style **************/
+.back-ico {
+  padding: 14px;
+}
+
+.back-ico .fa {
+  background: #fff;
+}
+
+.new-texture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 1.5rem 0 1.5rem;
+}
+
+.col-texture {
+  width: 80%;
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem 4rem 2rem 2rem;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
+}
+
+.col-texture h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/**************** tablet style ***************/
+@media only screen and (min-width: 768px) {
+  .sub-page {
+    padding-top: 7.5rem;
+  }
+
+  .add-rep {
+    padding: 12px 2.5rem;
+  }
+
+  .list-item {
+    height: 600px;
+    padding: 0;
+  }
+
+  .list-col {
+    width: 600px;
+  }
+
+  /************* new.html.erb style **************/
+  .new-texture {
+    padding: 4rem 12px;
+  }
+}
+
+/**************** desktop style ***************/
+@media only screen and (min-width: 1024px) {
+  .list-item {
+    height: 360px;
+  }
+
+  /************* new.html.erb style **************/
+  .col-texture {
+    width: 50%;
+  }
+}

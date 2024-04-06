@@ -1,2 +1,85 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<section class="food-page">
+  <div>
+    <%= render 'shared/navbar' %>
+  </div>
+
+  <div class="main-page">
+    <!---------- main list ------------->
+    <div class="sub-page">
+      <h2>My Foods</h2>
+      <!---------- add recipe button ------------->
+      <div class="add-rep">
+        <%= link_to new_food_path do %>
+          <i class="fa-solid fa-plus"></i>
+          add food
+        <% end %>
+      </div>
+
+      <!---------- recipe list ------------->
+      <div class="list-item">
+        <div class="main-table">
+          <!------------ desktop listing ------------>
+          <% if @foods.empty? %>
+            <div class="empty">
+              <%= image_tag('notfound.svg') %>
+              <span>No Foods. Create one now!!!</span>
+            </div>
+          <% else %>
+            <table>
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Measurement Unit</th>
+                <th>Unit Price</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @foods.each do |food| %>
+                <tr>
+                  <td> <%= food.name %> </td>
+                  <td> <%= food.measure_unit %> </td>
+                  <td> $<%= food.price %> </td>
+                  <td style="display: flex; justify-content: center">
+                    <%= button_to food_path(food), class: 'btn-del', method: :delete do %>
+                      <i class="fa-solid fa-trash"></i>
+                      remove
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          <% end %>
+
+        </div>
+        <!------------ mobile listing ------------>
+        <div class="mob-list">
+          <% if @foods.empty? %>
+            <div class="empty">
+              <%= image_tag('notfound.svg') %>
+              <span>No recipes. Create one now!!!</span>
+            </div>
+          <% else %>
+            <% @foods.each do |food| %>
+              <div class="items">
+                <div class="title-food">
+                  <span> <%= food.name %> </span>
+                  <%= link_to food_path(food), class: 'btn-del', method: :delete do %>
+                    <i class="fa-solid fa-trash"></i>
+                    remove
+                  <% end %>
+                </div>
+
+                <div class="quan">
+                  <span>Measurement unit: <%= food.measure_unit %> </span>
+                  <span>Unit price: $<%= food.price %> </span>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

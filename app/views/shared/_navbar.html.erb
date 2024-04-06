@@ -1,9 +1,17 @@
 <header>
   <nav>
     <!---------- application title and logo ------------>
-    <div class="title-menu">
-      <%= image_tag('globe.jpg') %>
-      <h2>GlobeGrub</h2>
+    <div>
+      <div class="title-menu">
+        <%= image_tag('globe.jpg') %>
+        <h2>GlobeGrub</h2>
+        <div class="reg">
+          <% unless user_signed_in? %>
+            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to 'Sign Up', new_user_registration_path %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <!---------- desktop nav menu items ------------>
     <div class="nav-menu">
@@ -14,9 +22,6 @@
           <li> <%= link_to 'Foods', foods_path %> </li>
           <li> <%= link_to 'Inventories', inventories_path %> </li>
           <li> <%= link_to 'General Shopping', "" %> </li>
-        <% else %>
-          <%= link_to 'Sign In', new_user_session_path %>
-          <%= link_to 'Sign Up', new_user_registration_path %>
         <% end %>
       </ul>
 
@@ -41,9 +46,6 @@
             <li> <%= link_to 'Foods', foods_path %> </li>
             <li> <%= link_to 'Inventories', inventories_path %> </li>
             <li> <%= link_to 'General Shopping', "" %> </li>
-          <% else %>
-            <%= link_to 'Sign In', new_user_session_path %>
-            <%= link_to 'Sign Up', new_user_registration_path %>
           <% end %>
         </ul>
 
@@ -57,10 +59,12 @@
     </div>
 
     <!-------------- menu icon ------------------>
-    <div class="menu-icon" data-controller="navbar">
-      <%= button_to "", data: { action: "click->navbar#toggle" }, class: "toggle-button" do %>
-        <i class="fa-solid fa-bars fa-lg toggle-button" data-action="click->navbar#toggle"></i>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="menu-icon" data-controller="navbar">
+        <%= button_to "", data: { action: "click->navbar#toggle" }, class: "toggle-button" do %>
+          <i class="fa-solid fa-bars fa-lg toggle-button" data-action="click->navbar#toggle"></i>
+        <% end %>
+      </div>
+    <% end %>
   </nav>
 </header>
