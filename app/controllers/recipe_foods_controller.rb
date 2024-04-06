@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  before_action :set_recipe
   def index
     @recipe_foods = RecipeFood.all
   end
@@ -7,12 +8,20 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.new
   end
 
+  def show
+    @recipe_food = RecipeFood.find_by_id(params[:id])
+
+    return unless @recipe_foods.nil?
+
+    redirect_to recipe_recipe_foods_path
+  end
+
   def create
     @recipe_food = @recipe.recipe_foods.build(recipe_food_params)
     if @recipe_food.save
       redirect_to recipe_path(@recipe)
     else
-      rnder :new
+      render :new
     end
   end
 
@@ -24,6 +33,10 @@ class RecipeFoodsController < ApplicationController
   end
 
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
+  end
 
   def recipe_food_params
     params.require(:recipe_food).permit(:food_id, :quantity)
