@@ -25,19 +25,6 @@ nav {
   border-radius: 10px;
 }
 
-.reg {
-  display: flex;
-  gap: 1rem;
-  padding-left: 6px;
-}
-
-.reg a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-}
-
 .nav-menu {
   display: none;
 }
@@ -52,6 +39,19 @@ ul {
 ul li a {
   color: #2e2f30;
   text-decoration: none;
+}
+
+.reg {
+  display: flex;
+  gap: 1rem;
+  padding-left: 6px;
+}
+
+.reg a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .profile {
@@ -90,8 +90,7 @@ ul li a {
   top: 0;
   right: 0;
   transform: translateX(-100%);
-
-  /* transition: 0.5s; */
+  transition: 0.5s;
 }
 
 .menu-open {
