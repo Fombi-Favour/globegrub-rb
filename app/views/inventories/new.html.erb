@@ -1,0 +1,29 @@
+<section class="inventory-page">
+  <div class="main-page">
+    <div class="back-ico">
+      <%= link_to inventories_path do %>
+        <i class="fa-solid fa-circle-arrow-left fa-2xl" style="color: #ffffff;"></i>
+      <% end %>
+    </div>
+
+    <div class="new-texture">
+      <div class="col-texture">
+        <h2>New Inventory</h2>
+        <%= form_with model: @inventory, url: inventories_path, local: true, method: :post do |f| %>
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          </div>
+          <div class="field">
+            <%= f.label :description %>
+            <%= f.text_field :description, autofocus: true, autocomplete: "description" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit class: 'btn-submit' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
