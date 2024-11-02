@@ -1,0 +1,33 @@
+<section class="recipe-page">
+  <div class="main-page">
+    <div class="back-ico">
+      <%= link_to recipe_path(@recipe.id) do %>
+        <i class="fa-solid fa-circle-arrow-left fa-2xl" style="color: #ffffff;"></i>
+      <% end %>
+    </div>
+    <div class="new-texture">
+      <div class="col-texture">
+        <h2>New Recipe Food</h2>
+        <%= form_with model: @recipe_food, url: recipes_path, local: true, method: :post do |f| %>
+          <div class="field">
+            <%= f.label :recipe_id %><br />
+            <%= f.collection_select(:recipe_ids, current_user.recipes, :id, :name, { prompt: true }, { multiple: true, required: true }) %>
+          </div>
+          <div class="field">
+            <%= f.label :food_id %><br />
+            <%#= f.collection_select(:food_ids, @food, :id, :name, { prompt: true }, { multiple: true, required: true }) %>
+            <%= f.number_field :food_id, autofocus: true, autocomplete: "food_id" %>
+          </div>
+          <div class="field">
+            <%= f.label :quantity %>
+            <%= f.number_field :quantity, step: 0.5, autofocus: true, autocomplete: "quantity" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit class: 'btn-submit' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
