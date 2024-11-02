@@ -1,6 +1,6 @@
 class InventoriesController < ApplicationController
   def index
-    @inventories = Inventory.all
+    @inventories = current_user.inventories.order(:created_at)
   end
 
   def show
@@ -14,7 +14,7 @@ class InventoriesController < ApplicationController
   end
 
   def create
-    @inventory = Inventory.new(inventory_params)
+    @inventory = current_user.inventories.build(inventory_params)
     if @inventory.save
       redirect_to inventories_path, notice: 'Inventory created successfully'
     else
