@@ -18,6 +18,7 @@ class RecipeFoodsController < ApplicationController
 
   def create
     @recipe_food = @recipe.recipe_foods.build(recipe_food_params)
+
     if @recipe_food.save
       redirect_to recipe_path(@recipe)
     else
@@ -38,7 +39,11 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
   end
 
+  # def set_food
+  #   @food = Food.find(params[:food_id])
+  # end
+
   def recipe_food_params
-    params.require(:recipe_food).permit(:food_id, :quantity)
+    params.require(:recipe_food).permit(:quantity, recipe_ids: [], food_ids: [])
   end
 end
