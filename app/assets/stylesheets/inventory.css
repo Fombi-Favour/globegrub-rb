@@ -1,0 +1,7 @@
+/**************** mobile style ***************/
+.inventory-page {
+  width: 100%;
+  height: 100vh;
+  background: url("inventory.jpg") no-repeat fixed center;
+  background-size: cover;
+}
