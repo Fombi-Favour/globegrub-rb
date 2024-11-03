@@ -5,3 +5,13 @@
   background: url("inventory.jpg") no-repeat fixed center;
   background-size: cover;
 }
+
+/**************** tablet style ***************/
+@media only screen and (min-width: 768px) {
+
+}
+
+/**************** desktop style ***************/
+@media only screen and (min-width: 1024px) {
+
+}
