@@ -1,2 +1,44 @@
-<h1>Inventories#index</h1>
-<p>Find me in app/views/inventories/index.html.erb</p>
+<section class="inventory-page">
+  <div>
+    <%= render 'shared/navbar' %>
+  </div>
+
+  <div class="main-page">
+    <!---------- main list ------------->
+    <div class="sub-page">
+      <h2>My Inventories</h2>
+      <!---------- add recipe button ------------->
+      <div class="add-rep">
+        <%= link_to new_inventory_path do %>
+          <i class="fa-solid fa-plus"></i>
+          add inventory
+        <% end %>
+      </div>
+
+      <!---------- recipe list ------------->
+      <div class="list-item">
+        <% if @inventories.empty? %>
+          <div class="empty">
+            <%= image_tag('notfound.svg') %>
+            <span>No inventories. Create one now!!!</span>
+          </div>
+        <% else %>
+          <% @inventories.each do |inventory| %>
+            <div class="list-col">
+              <div class="row">
+                <%= link_to inventory.name, inventory_path(inventory.id), class: 'name' %>
+                <%= link_to inventories_path, class: 'btn-del', method: :delete do %>
+                  <i class="fa-solid fa-trash"></i>
+                  delete
+                <% end %>
+              </div>
+              <div class="desc">
+                <span> <%= inventory.description %> </span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

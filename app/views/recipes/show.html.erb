@@ -37,7 +37,7 @@
       <!----------------- buttons display --------------------->
       <div class="action-btn">
         <%= button_to "Generate shopping list", "", class: "btn-generate" %>
-        <%= button_to "Add ingredient", "", class: "add-btn" %>
+        <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: "add-btn" %>
       </div>
 
       <!---------------- recipe foods list ------------------->

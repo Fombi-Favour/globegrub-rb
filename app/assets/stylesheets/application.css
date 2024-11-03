@@ -18,6 +18,7 @@
  *= require public_recipe
  *= require recipe_details
  *= require food
+ *= require inventory
  */
 
 * {
