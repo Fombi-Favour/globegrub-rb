@@ -1,0 +1,48 @@
+<section class="inventory-page">
+  <div class="main-page">
+    <div class="back-ico">
+      <%= link_to inventories_path do %>
+        <i class="fa-solid fa-circle-arrow-left fa-2xl" style="color: #ffffff;"></i>
+      <% end %>
+    </div>
+    <div class="">
+      <h2> <%= @inventory.name %> </h2>
+      <!---------- add food button ------------->
+      <div class="add-rep">
+        <%= link_to new_food_path do %>
+          <i class="fa-solid fa-plus"></i>
+          add food
+        <% end %>
+      </div>
+
+      <!---------------- inventory details ---------------->
+      <div class="list-item">
+        <div class="main-table">
+          <table>
+            <thead>
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @foods.each do |food| %>
+              <tr>
+                <td> <%= food.name %> </td>
+                <td> <%= food.quantity %> </td>
+                <td style="display: flex; justify-content: center">
+                  <%= button_to food_path(food), class: 'btn-del', method: :delete do %>
+                    <i class="fa-solid fa-trash"></i>
+                    remove
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
