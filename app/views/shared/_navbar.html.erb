@@ -25,8 +25,8 @@
   <!---------- mobile view (side bar section) ------------>
   <ul class="sidebar" id="navMenu">
     <li class="close-menu" data-action="click->navbar#toggle"> <i class="fa-regular fa-circle-xmark fa-xl"></i> </li>
-    <li> <span>👋 Hello, <%= current_user.name %> </span> </li>
     <% if user_signed_in? %>
+      <li> <span>👋 Hello, <%= current_user.name %> </span> </li>
       <li> <%= link_to 'Public Recipes', public_recipes_path %> </li>
       <li> <%= link_to 'Recipes', recipes_path %> </li>
       <li> <%= link_to 'Foods', foods_path %> </li>
