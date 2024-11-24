@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav data-controller="navbar">
   <!---------- desktop view ------------>
   <ul>
     <li id="logo-tag">
@@ -14,7 +14,7 @@
         <span>👋 Hello, <%= current_user.name %> </span>
         <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "btn-out" %>
       </li>
-      <li class="menu-button" data-action="click->sidebar#toggle">
+      <li class="menu-button" data-action="click->navbar#toggle">
         <i class="fa-solid fa-bars fa-lg toggle-button"></i>
       </li>
     <% else %>
@@ -24,7 +24,7 @@
   </ul>
   <!---------- mobile view (side bar section) ------------>
   <ul class="sidebar" id="navMenu">
-    <li class="close-menu" data-action="click->sidebar#toggle"> <i class="fa-regular fa-circle-xmark fa-xl"></i> </li>
+    <li class="close-menu" data-action="click->navbar#toggle"> <i class="fa-regular fa-circle-xmark fa-xl"></i> </li>
     <li> <span>👋 Hello, <%= current_user.name %> </span> </li>
     <% if user_signed_in? %>
       <li> <%= link_to 'Public Recipes', public_recipes_path %> </li>
