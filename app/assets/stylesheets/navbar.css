@@ -1,5 +1,5 @@
 /********* mobile style ***********/
-.navbar {
+nav {
   background: #2e2f30;
   height: 40px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
@@ -7,7 +7,7 @@
   padding: 8px 14px;
 }
 
-.navbar ul {
+nav ul {
   width: 100%;
   list-style: none;
   display: flex;
@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.navbar a {
+nav a {
   height: 100%;
   padding: 0 20px;
   text-decoration: none;
@@ -27,7 +27,7 @@
   color: #fff;
 }
 
-.navbar li:first-child {
+nav li:first-child {
   margin-right: auto;
 }
 
@@ -99,7 +99,7 @@
 
 /********* tablet style ***********/
 @media only screen and (min-width: 768px) {
-  .navbar {
+  nav {
     height: 70px;
   }
 
