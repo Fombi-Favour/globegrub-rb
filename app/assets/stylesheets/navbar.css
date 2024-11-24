@@ -27,6 +27,13 @@ nav a {
   color: #fff;
 }
 
+.sidebar li,
+.sidebar a {
+  /* width: 100%; */
+  font-size: 22px;
+  padding: 3px 0 2px 14px;
+}
+
 nav li:first-child {
   margin-right: auto;
 }
@@ -79,13 +86,6 @@ nav li:first-child {
 
 .sidebar.active {
   display: block;
-}
-
-.sidebar li,
-.sidebar a {
-  /*width: 100%;*/
-  font-size: 22px;
-  padding: 3px 0 2px 14px;
 }
 
 .sidebar span {
