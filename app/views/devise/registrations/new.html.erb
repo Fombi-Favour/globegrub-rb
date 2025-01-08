@@ -1,48 +1,40 @@
-<section class="reg-col">
-  <div class="blur-col">
+<section id="register">
+  <div id="blur-bg">
     <!---------- title and logo ------------>
-    <div class="title-menu" style="padding-top: 12px">
+    <div class="nav-side">
       <%= image_tag('globe.jpg') %>
       <h2 style="color: #ffffff">GlobeGrub</h2>
     </div>
-
-    <!---------------- login title and form --------------->
+    <!---------------- register heading + form + switch text --------------->
     <main>
-      <div class="reg-form-texture">
-        <div class="texture-col">
-          <h2 class="title">Sign up</h2>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-
-            <div class="field">
-              <%= f.label :name %><br />
-              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "Sign up", class: "btn-submit" %>
-            </div>
-          <% end %>
+      <!----------- form ----------->
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {data: {controller: "password_visibility"}}) do |f| %>
+        <!----------- heading ----------->
+        <h2>sign up</h2>
+        <div class="input-field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
-      </div>
+        <div class="input-field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="input-field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <div class="input-field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <!----------- action button ----------->
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn-submit" %>
+        </div>
+      <% end %>
       <p class="text-swap">Already have an account? <%= render "devise/shared/links" %></p>
     </main>
   </div>

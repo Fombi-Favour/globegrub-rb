@@ -1,40 +1,36 @@
-<section class="log-col">
-  <div class="blur-col">
+<section id="login">
+  <div id="blur-bg">
     <!---------- title and logo ------------>
-    <div class="title-menu" style="padding-top: 12px">
+    <div class="nav-side">
       <%= image_tag('globe.jpg') %>
       <h2 style="color: #ffffff">GlobeGrub</h2>
     </div>
-
-    <!---------------- login title and form --------------->
+    <!---------------- login heading + form + switch text --------------->
     <main>
-      <div class="form-texture">
-        <div class="texture-col">
-          <h2 class="title">Log In</h2>
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
 
-            <div class="field">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password" %>
-            </div>
-
-            <% if devise_mapping.rememberable? %>
-              <div class="rem-field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-              </div>
-            <% end %>
-
-            <div class="actions">
-              <%= f.submit "Log in", class: "btn-submit" %>
-            </div>
-          <% end %>
+      <!----------- form ----------->
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {data: { controller: "password_visibility" }}) do |f| %>
+        <!----------- heading ----------->
+        <h2>log in</h2>
+        <div class="input-field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-      </div>
+        <div class="input-field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="rem-field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+        <!----------- action button ----------->
+        <div class="actions">
+          <%= f.submit "log in", class: "btn-submit" %>
+        </div>
+      <% end %>
       <p class="text-swap">New to this site? <%= render "devise/shared/links" %></p>
     </main>
   </div>

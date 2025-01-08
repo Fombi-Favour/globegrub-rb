@@ -26,3 +26,20 @@
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
+
+body {
+  min-height: 100vh;
+}
+
+#login,
+#register {
+  width: 100%;
+  background-size: cover;
+}
+
+#blur-bg {
+  height: 100vh;
+  background: rgb(0 0 0 / 0.7);
+  padding: 0 12px;
+  color: #fff;
+}
