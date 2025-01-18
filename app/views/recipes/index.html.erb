@@ -1,11 +1,8 @@
 <section class="recipe-page">
-  <div>
-    <%= render 'shared/navbar' %>
-  </div>
-
   <div class="main-page">
-    <!---------- main list ------------->
-    <div class="sub-page">
+    <%= render 'shared/navbar' %>
+    <!--------- title + list if exist --------->
+    <div class="list-sec">
       <h2>My Recipes</h2>
       <!---------- add recipe button ------------->
       <div class="add-rep">
@@ -14,31 +11,29 @@
           add recipe
         <% end %>
       </div>
-
-      <!---------- recipe list ------------->
-      <div class="list-item">
-        <% if @recipes.empty? %>
-          <div class="empty">
-            <%= image_tag('notfound.svg') %>
-            <span>No recipes. Create one now!!!</span>
-          </div>
-        <% else %>
-          <% @recipes.each do |recipe| %>
-            <div class="list-col">
-              <div class="row">
-                <%= link_to recipe.name, recipe_path(recipe.id), class: 'name' %>
-                <%= link_to recipes_path, class: 'btn-del', method: :delete do %>
-                  <i class="fa-solid fa-trash"></i>
-                  delete
-                <% end %>
-              </div>
-              <div class="desc">
-                <span> <%= recipe.description %> </span>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+      <% if @recipes.empty? %>
+      <div class="empty-list">
+        <%= image_tag('notfound.svg') %>
+        <span>No Recipes!!!</span>
       </div>
+      <% else %>
+        <div class="recipe-list">
+          <% @recipes.each do |recipe| %>
+          <div class="list-col">
+            <div class="row">
+              <%= link_to recipe.name, recipe_path(recipe.id), class: 'name' %>
+              <%= link_to recipes_path, class: 'btn-del', method: :delete do %>
+                <i class="fa-solid fa-trash"></i>
+                Delete
+              <% end %>
+            </div>
+            <div class="desc">
+              <span> <%= recipe.description %> </span>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
