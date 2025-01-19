@@ -7,7 +7,7 @@
     </div>
     <!--------- title + form ------------>
     <main>
-      <%= form_with model: @recipe, url: recipes_path, local: true, method: :post do |f| %>
+      <%= form_with model: @recipe, url: recipes_path, local: true, method: :post, html: {class: "devise-form"} do |f| %>
         <h2 class="new-recipe">new recipe</h2>
         <div class="rem-field" id="public-rec">
           <%= f.check_box :public %>
