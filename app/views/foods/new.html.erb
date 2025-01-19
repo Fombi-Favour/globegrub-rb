@@ -7,7 +7,7 @@
     </div>
     <!--------- title + form ------------>
     <main>
-      <%= form_with model: @food, url: foods_path, local: true, method: :post do |f| %>
+      <%= form_with model: @food, url: foods_path, local: true, html: { class: "devise-form" } , method: :post do |f| %>
         <h2 class="new-recipe">new food</h2>
         <div class="input-field">
           <%= f.label :name %><br />
