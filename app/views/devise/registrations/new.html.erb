@@ -8,7 +8,7 @@
     <!---------------- register heading + form + switch text --------------->
     <main>
       <!----------- form ----------->
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {data: {controller: "password_visibility"}}) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "devise-form", data: {controller: "password_visibility"}}) do |f| %>
         <!----------- heading ----------->
         <h2>sign up</h2>
         <div class="input-field">
