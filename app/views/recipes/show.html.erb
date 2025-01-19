@@ -55,19 +55,30 @@
         </tr>
         </thead>
         <tbody>
-        <%= @recipe.recipe_foods.each do |recipe_food| %>
+          <% if @recipe.recipe_foods.empty? %>
           <tr>
-            <td> <%= recipe_food.food.name %> </td>
-            <td> <%= recipe_food.quantity %> <%= recipe_food.food.measure_unit %> </td>
-            <td> $<%= recipe_food.food.price * recipe_food.quantity %> </td>
-            <td style="display: flex; justify-content: center">
-              <%= button_to recipe_recipe_food_path(@recipe, recipe_food), class: 'btn-del', method: :delete do %>
-                <i class="fa-solid fa-trash"></i>
-                remove
-              <% end %>
+            <td colspan="4" id="empty-col">
+              <div class="empty-list">
+                <%= image_tag('notfound.svg') %>
+                <span>No Recipe Food!!!</span>
+              </div>
             </td>
           </tr>
-        <% end %>
+          <% else %>
+            <%= @recipe.recipe_foods.each do |recipe_food| %>
+              <tr>
+                <td> <%= recipe_food.food.name %> </td>
+                <td> <%= recipe_food.quantity %> <%= recipe_food.food.measure_unit %> </td>
+                <td> $<%= recipe_food.food.price * recipe_food.quantity %> </td>
+                <td>
+                  <%= link_to food_path(food), class: 'btn-del', id: 'del-food', method: :delete do %>
+                    <i class="fa-solid fa-trash"></i>
+                    Remove
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
         </tbody>
       </table>
     </main>
