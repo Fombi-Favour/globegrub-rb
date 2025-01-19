@@ -108,16 +108,18 @@ input:checked + .slider::before {
 
 table {
   width: 100%;
-  padding: 0 2px;
+  padding: 0 4px;
+  color: #fff;
+  text-align: center;
 }
 
 thead {
   background-color: #f5b53e;
 }
 
-tbody {
-  border: 1px solid #fff;
-  height: 300px;
+#empty-col img {
+  width: 300px;
+  height: 250px;
 }
 
 /**************** tablet style ***************/
@@ -127,7 +129,15 @@ tbody {
     padding: 0 12px;
     gap: 10.5rem;
   }
+
+  table {
+    padding: 0 18px;
+  }
 }
 
 /**************** desktop style ***************/
-@media only screen and (min-width: 1024px) {}
+@media only screen and (min-width: 1024px) {
+  table {
+    padding: 0 40px;
+  }
+}
