@@ -5,25 +5,23 @@
         <i class="fa-solid fa-circle-arrow-left fa-2xl" style="color: #ffffff;"></i>
       <% end %>
     </div>
+    <!--------- title + form ------------>
+    <main>
+      <%= form_with model: @inventory, url: inventories_path, local: true, html: { class: "devise-form" }, method: :post do |f| %>
+        <h2 class="new-recipe">new inventory</h2>
+        <div class="input-field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+        <div class="input-field">
+          <%= f.label :description %>
+          <%= f.text_field :description, autofocus: true, autocomplete: "description" %>
+        </div>
 
-    <div class="new-texture">
-      <div class="col-texture">
-        <h2>New Inventory</h2>
-        <%= form_with model: @inventory, url: inventories_path, local: true, method: :post do |f| %>
-          <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-          </div>
-          <div class="field">
-            <%= f.label :description %>
-            <%= f.text_field :description, autofocus: true, autocomplete: "description" %>
-          </div>
-
-          <div class="actions">
-            <%= f.submit class: 'btn-submit' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+        <div class="actions">
+          <%= f.submit class: 'btn-submit' %>
+        </div>
+      <% end %>
+    </main>
   </div>
 </section>
