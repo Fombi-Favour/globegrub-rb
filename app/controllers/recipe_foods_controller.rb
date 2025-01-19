@@ -6,6 +6,7 @@ class RecipeFoodsController < ApplicationController
 
   def new
     @recipe_food = RecipeFood.new
+    @foods = Food.all
   end
 
   def show
@@ -20,9 +21,9 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = @recipe.recipe_foods.build(recipe_food_params)
 
     if @recipe_food.save
-      redirect_to recipe_path(@recipe)
+      redirect_to recipe_path(@recipe), notice: 'Recipe Food successfully created'
     else
-      render :new
+      render :new, notice: 'Recipe Food not created'
     end
   end
 
@@ -39,11 +40,7 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
   end
 
-  # def set_food
-  #   @food = Food.find(params[:food_id])
-  # end
-
   def recipe_food_params
-    params.require(:recipe_food).permit(:quantity, recipe_ids: [], food_ids: [])
+    params.require(:recipe_food).permit(:quantity, :food_id, :recipe_id)
   end
 end
