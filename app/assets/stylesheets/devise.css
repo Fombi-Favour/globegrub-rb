@@ -36,7 +36,7 @@ main h2 {
   color: #2e2f30;
 }
 
-form {
+.devise-form {
   margin: 2rem 0 0.965rem 0;
   background: #fff;
   padding: 0 4rem 2rem 2rem;
@@ -44,16 +44,17 @@ form {
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.4);
 }
 
-form .input-field {
+.devise-form .input-field {
   margin: 13px 0;
 }
 
-form label {
+.devise-form label {
   color: rgb(55 65 81 / 1);
   font-weight: 500;
 }
 
-.input-field input {
+.input-field input,
+.input-field select {
   width: 100%;
   border-radius: 10px;
   color: rgb(55 65 81 / 1);
@@ -101,7 +102,7 @@ form label {
     border-radius: 14px;
   }
 
-  form {
+  .devise-form {
     width: 550px;
   }
 
