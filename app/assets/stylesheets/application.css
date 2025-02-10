@@ -26,3 +26,51 @@
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
+
+body {
+  min-height: 100vh;
+}
+
+/*
+.notice,
+.alert {
+  padding: 15px;
+  margin: 10px;
+  border-radius: 4px;
+  animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 4s forwards;
+}
+
+.notice {
+  background: #dff0d8;
+  border-left: 5px solid #5cb85c;
+  color: #3c763d;
+}
+
+.alert {
+  background: #f2dede;
+  border-left: 5px solid #d9534f;
+  color: #a94442;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+*/
+
+#login,
+#register {
+  width: 100%;
+  background-size: cover;
+}
+
+#blur-bg {
+  height: 100vh;
+  background: rgb(0 0 0 / 0.7);
+  padding: 0 12px;
+  color: #fff;
+}

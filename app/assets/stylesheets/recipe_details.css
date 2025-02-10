@@ -1,45 +1,40 @@
 /**************** mobile style ***************/
-.main-row {
+.recipe-det {
   color: #fff;
+}
+
+.recipe-props {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  padding: 0 7px;
+  color: #fff;
+}
+
+.recipe-toggle form {
+  width: fit-content;
+  padding: 0;
+  background: none;
+}
+
+.recipe-toggle h4 {
+  display: flex;
   align-items: center;
-  gap: 0.825rem;
+  gap: 1rem;
 }
 
-.main-row h2 {
-  font-size: 1.975rem;
-  text-align: center;
-  font-weight: 700;
+.recipe-toggle h4 label {
+  color: #fff;
+  text-transform: capitalize;
 }
 
-.toggle h4 {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.contents-detail {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 1.825rem;
-}
-
-.content-col {
-  display: flex;
-  flex-direction: column;
-  gap: 0.825rem;
-}
-
-/* style for toggle button */
-.switch {
+.switch-toggle {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
 
-.switch input {
+.switch-toggle input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -85,26 +80,21 @@ input:checked + .slider::before {
   transform: translateX(26px);
 }
 
-.switch input:disabled + .slider {
+.switch-toggle input:disabled + .slider {
   background-color: #ccc;
   border-radius: 50%;
   cursor: not-allowed;
 }
 
-/* end style for toggle button */
-
-.action-btn {
+.recipe-action {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 12px 15px;
+  margin-top: 5px;
+  gap: 1.45rem;
 }
 
 .btn-generate,
 .add-btn {
-  font-size: 1.025rem;
+  font-size: 16px;
   font-weight: 600;
   border-radius: 12px;
   border: none;
@@ -116,58 +106,47 @@ input:checked + .slider::before {
   white-space: nowrap;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.add-btn {
+  text-decoration: none;
 }
 
 table {
-  width: 10rem;
+  width: 100%;
+  padding: 0 4px;
+  color: #fff;
   text-align: center;
-  border-collapse: collapse;
-  margin: 0 auto 20px;
 }
 
 thead {
   background-color: #f5b53e;
 }
 
-th,
 td {
-  padding: 12px;
-  text-align: center;
-  font-size: 18px;
+  padding: 5px 0;
   border-bottom: 1px solid #ddd;
 }
 
-th {
-  font-weight: bold;
-  text-align: center;
+#empty-col img {
+  width: 250px;
+  height: 200px;
 }
 
 /**************** tablet style ***************/
 @media only screen and (min-width: 768px) {
-  .contents-detail {
-    gap: 20rem;
-    margin-top: 1.975rem;
+  .recipe-props {
+    flex-direction: row;
+    padding: 0 12px;
+    gap: 10.5rem;
   }
 
-  .action-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-bottom: 2px solid #e5e7eb;
-    gap: 10rem;
+  table {
+    padding: 0 18px;
   }
 }
 
 /**************** desktop style ***************/
 @media only screen and (min-width: 1024px) {
-  .main-row {
-    margin-top: -1.5rem;
-  }
-
-  .main-row h2 {
-    font-size: 1.825rem;
+  table {
+    padding: 0 40px;
   }
 }

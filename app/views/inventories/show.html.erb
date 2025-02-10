@@ -5,44 +5,38 @@
         <i class="fa-solid fa-circle-arrow-left fa-2xl" style="color: #ffffff;"></i>
       <% end %>
     </div>
-    <div class="">
-      <h2> <%= @inventory.name %> </h2>
-      <!---------- add food button ------------->
+    <div class="list-sec">
+      <!----- title + other properties ------>
+      <h2 class="inventory-det"> <%= @inventory.name %> </h2>
       <div class="add-rep">
         <%= link_to new_food_path do %>
           <i class="fa-solid fa-plus"></i>
           add food
         <% end %>
       </div>
-
-      <!---------------- inventory details ---------------->
-      <div class="list-item">
-        <div class="main-table">
-          <table>
-            <thead>
+      <table>
+        <thead>
+        <tr>
+          <td>Food</td>
+          <td>Quantity</td>
+          <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
             <tr>
-              <th>Food</th>
-              <th>Quantity</th>
-              <th>Action</th>
+              <td> <%= food.name %> </td>
+              <td> <%= food.quantity %> </td>
+              <td>
+                <%= link_to food_path(food), class: 'btn-del', id: 'del-food', method: :delete do %>
+                  <i class="fa-solid fa-trash"></i>
+                  Remove
+                <% end %>
+              </td>
             </tr>
-            </thead>
-            <tbody>
-            <% @foods.each do |food| %>
-              <tr>
-                <td> <%= food.name %> </td>
-                <td> <%= food.quantity %> </td>
-                <td style="display: flex; justify-content: center">
-                  <%= button_to food_path(food), class: 'btn-del', method: :delete do %>
-                    <i class="fa-solid fa-trash"></i>
-                    remove
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
